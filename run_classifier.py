@@ -4,12 +4,12 @@
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-#col
+#
 #     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """BERT finetuning runner."""
@@ -311,9 +311,13 @@ class MrpcProcessor(DataProcessor):
     return self._create_examples(
         self._read_tsv(os.path.join(data_dir, "test.tsv")), "test")
 
+  #def get_labels(self):
+    #"""See base class."""
+    #return ["0", "1"]
+
   def get_labels(self):
     """See base class."""
-    return ["0", "1"]
+    return ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]
 
   def _create_examples(self, lines, set_type):
     """Creates examples for the training and dev sets."""
@@ -350,6 +354,10 @@ class ColaProcessor(DataProcessor):
     """See base class."""
     return self._create_examples(
         self._read_tsv(os.path.join(data_dir, "test.tsv")), "test")
+
+  #def get_labels(self):
+    #"""See base class."""
+    #return ["0", "1"]
 
   def get_labels(self):
     """See base class."""
@@ -457,7 +465,7 @@ def convert_single_example(ex_index, example, label_list, max_seq_length,
   assert len(segment_ids) == max_seq_length
 
   label_id = label_map[example.label]
-  print('-----------hola-------')
+
   if ex_index < 5:
     tf.logging.info("*** Example ***")
     tf.logging.info("guid: %s" % (example.guid))

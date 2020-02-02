@@ -387,13 +387,7 @@ def convert_single_example(ex_index, example, label_list, max_seq_length,
   """Converts a single `InputExample` into a single `InputFeatures`."""
 
   if isinstance(example, PaddingInputExample):
-    return InputFeatures(
-
-        input_ids=[0] * max_seq_length,
-        input_mask=[0] * max_seq_length,
-        segment_ids=[0] * max_seq_length,
-        label_id=0,
-        is_real_example=False)
+    return InputFeatures(input_ids=[0] * max_seq_length, input_mask=[0] * max_seq_length, segment_ids=[0] * max_seq_length, label_id=0, is_real_example=False)
 
   label_map = {}
   for (i, label) in enumerate(label_list):

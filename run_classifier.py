@@ -375,6 +375,7 @@ class ColaProcessor(DataProcessor):
         text_a = tokenization.convert_to_unicode(line[1])
         label = "0"
       else:
+        print(line[3])
         text_a = tokenization.convert_to_unicode(line[3])
         label = tokenization.convert_to_unicode(line[1])
       examples.append(
